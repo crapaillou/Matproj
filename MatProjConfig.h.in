@@ -1,0 +1,3 @@
+#define MatProj_VERSION_MAJOR @MatProj_VERSION_MAJOR@
+#define MatProj_VERSION_MINOR @MatProj_VERSION_MINOR@
+#define MatProj_VERSION_PATCH @MatProj_VERSION_PATCH@
