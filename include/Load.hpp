@@ -4,6 +4,8 @@
 #include <string>
 #include <vector>
 
+
+
 //hello world test function.
 int PrintMessage(std::string message);
 
@@ -18,3 +20,7 @@ std::vector<std::vector<int>> DataToMatrix(std::vector<uint8_t> DataArray);
 
 //separate label into 3 array training validation control.
 void SplitLabel(std::vector<uint8_t> original, std::vector<int> training, std::vector<int> validation, std::vector<int> control, int split1, int split2);
+
+
+
+

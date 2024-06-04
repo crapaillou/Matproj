@@ -4,7 +4,8 @@
 #include <sstream>
 #include <cstdint>
 #include <tuple>
-#include "header.hpp"
+
+
 
 std::tuple<int, int> getfileshape(){
     //open the file and creat a string to put the first line in.
@@ -59,7 +60,7 @@ std::tuple<std::vector<uint8_t>, std::vector<uint8_t>> LoadData(const char* labe
     
     //print label to verify.
     for (int i = 0; i<10; i++){
-        std::cout << "label[" << i << "] = " << labels[i] << std::endl;
+        std::cout << "label[" << i << "] = " << int(labels[i]) << std::endl;
     }
 
     LabelFile.close();
@@ -98,3 +99,6 @@ void SplitLabel(std::vector<uint8_t> original, std::vector<int> training, std::v
     validation.insert(validation.end(), original.begin() + split1, original.begin() + split2);
     control.insert(control.end(), original.begin() + split2, original.end());
 }
+
+
+

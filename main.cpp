@@ -1,9 +1,13 @@
 #include <iostream>
 #include <string>
 #include <vector>
+#include <tuple>
 #include "MatProjConfig.h"
-#include "header.hpp"
-#include "matplot/matplot.h"
+#include "Load.hpp"
+#include "Feedforward.hpp"
+#include "opencv2/opencv.hpp"
+
+
 
 
 
@@ -20,40 +24,12 @@ int main(int argc, char* argv[]){
     const char* LabelPath = "../Data/label.bin";
     const char* DataPath = "../Data/data.bin";
 
-    // load label and data to vector.
-    auto dataTuple = LoadData(LabelPath, DataPath);
-    std::vector<uint8_t> Veclabel = std::get<0>(dataTuple);
-    std::vector<uint8_t> VecData = std::get<1>(dataTuple);
-
     
-    std::vector<int> training, validation, control;
-    int split1 = 99999; // Index to end the training set
-    int split2 = 100000; // Index to end the validation set and start the control set
-
-    try {
-        SplitLabel(Veclabel, training, validation, control, split1, split2);
-
-        // Print the results
-        std::cout << "Training: ";
-        for (int i = 0; i<10; i++) {
-            std::cout << training[i] << " ";
-        }
-        std::cout << std::endl;
-
-        std::cout << "Validation: ";
-        for (int i = 0; i<10; i++) {
-            std::cout << validation[i] << " ";
-        }
-        std::cout << std::endl;
-
-        std::cout << "Control: ";
-        for (int i = 0; i<10; i++) {
-            std::cout << control[i] << " ";
-        }
-        std::cout << std::endl;
-    } catch (const std::exception& e) {
-        std::cerr << "Error: " << e.what() << std::endl;
-    }
+    //generate to cv random matrix and display it.
+    cv::Mat cvmatrix = cv::Mat::ones(10, 10, CV_32F);
+    cv::Mat cvmatrix2 = cv::Mat::ones(10, 10, CV_32F);
+    cv::Mat res = cvmatrix + cvmatrix2;
+    std::cout << res << std::endl;
     
     return 0;
 }
