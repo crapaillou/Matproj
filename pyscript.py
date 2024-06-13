@@ -1,7 +1,6 @@
-import json
 import pickle
 import numpy as np
-import matplotlib.pyplot as plt
+
 
 with open('Data/MNIST-120k', 'rb') as file:
     mydico = pickle.load(file)
